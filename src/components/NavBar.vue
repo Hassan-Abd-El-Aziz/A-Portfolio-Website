@@ -29,7 +29,6 @@
         </span>
       </button>
     </div>
-
     <!-- navBar Links -->
     <nav
       :class="[
