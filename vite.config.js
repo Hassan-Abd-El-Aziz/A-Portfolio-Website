@@ -4,8 +4,8 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/A-Portfolio-Website/",
   plugins: [vue(), tailwindcss()],
+  base: "/A-Portfolio-Website/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
