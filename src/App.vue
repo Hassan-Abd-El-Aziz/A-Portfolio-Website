@@ -1,15 +1,28 @@
 <template>
   <div class="bg-[#111827] min-h-screen">
-    <NavBar />
-    <HeroSection />
-    <ServicesSection />
-    <AboutSection />
-    <ExperienceAndskills />
-    <LatestProjSection />
-    <ContactSection />
-    <TestimonialsSection />
-    <Footer />
-    <BackToTop />
+    <!-- wrap components in Suspense to handel loading -->
+    <Suspence>
+      <template #default>
+        <!-- wrap all components inside a single root element -->
+        <div>
+          <NavBar />
+          <HeroSection />
+          <ServicesSection />
+          <AboutSection />
+          <ExperienceAndskills />
+          <LatestProjSection />
+          <ContactSection />
+          <TestimonialsSection />
+          <Footer />
+          <BackToTop />
+        </div>
+      </template>
+      <template #fallback>
+        <div class="flex justify-center items-center min-h-screen">
+          <loadingSpinner />
+        </div>
+      </template>
+    </Suspence>
   </div>
 </template>
 <script setup>
@@ -42,4 +55,12 @@ const Footer = defineAsyncComponent(() => import("@/Components/Footer.vue"));
 const BackToTop = defineAsyncComponent(() =>
   import("@/Components/BackToTop.vue")
 );
+import loadingSpinner from "./components/LoadingSpinner.vue";
 </script>
+
+<style>
+*{
+  scrollbar-width: thin;
+  scrollbar-color: #111827 #f1f1f1;
+}
+</style>
